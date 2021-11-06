@@ -1,0 +1,22 @@
+{
+  "name": "sportizen",
+  "version": "1.0.0",
+  "description": "\"MERN Shopping Cart\"",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keval28598/SPortizen.git"
+  },
+  "author": "Codebusters",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keval28598/SPortizen/issues"
+  },
+  "homepage": "https://github.com/keval28598/SPortizen#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
