@@ -1,4 +1,5 @@
 import React from 'react';
+// import {LinkContainer} from 'react-router-dom';
 import { Navbar,Nav,Container} from 'react-bootstrap';
 
 const Header = () => {
@@ -6,7 +7,9 @@ const Header = () => {
         <header>
 <Navbar bg="light" variend="light" expand="lg" collapseOnSelect>
   <Container>
-    <Navbar.Brand href="/">Sportizen</Navbar.Brand>
+    
+    <Navbar.Brand href='/' >Sportizen</Navbar.Brand>
+    
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto">
