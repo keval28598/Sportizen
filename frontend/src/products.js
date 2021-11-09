@@ -4,7 +4,7 @@ const products = [
     name: 'Baseball Ball',
     image: '/images/baseball.jpg',
     description:
-      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
+      'High-quality PVC leather cover and cork filling, providing certain softness and comfortable touch feeling. The safety baseballs have a soft, cushioned construction which can reduce impact produced during ball catching.',
     brand: 'Apple',
     category: 'Electronics',
     price: 89.99,
@@ -17,7 +17,7 @@ const products = [
     name: 'Cricket Bat',
     image: '/images/bat.jpg',
     description:
-      'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life',
+      'Perfectly balanced with high performance this is the perfect bat for the player who likes to play big entertaining shots',
     brand: 'Apple',
     category: 'Electronics',
     price: 599.99,
@@ -30,7 +30,7 @@ const products = [
     name: 'Football',
     image: '/images/footballs.jpg',
     description:
-      'Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design',
+      'The deep-pebble surface material and pro style raised laces ensure extra traction which makes the footballs easy to throw and catch',
     brand: 'Cannon',
     category: 'Electronics',
     price: 929.99,
@@ -43,7 +43,7 @@ const products = [
     name: 'Boxing Gloves',
     image: '/images/glove.jpg',
     description:
-      'The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music',
+      'Shock-absorbing high-density foam padding; fully attached thumb for better injury protection',
     brand: 'Sony',
     category: 'Electronics',
     price: 399.99,
@@ -56,7 +56,7 @@ const products = [
     name: 'Baseball Helmet',
     image: '/images/helmet.jpg',
     description:
-      'Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience',
+      'To protect the players heads, the helmet has an EVA impact foam interior, a strong and durable ABS shell and an elastic nylon chin strap.',
     brand: 'Logitech',
     category: 'Electronics',
     price: 49.99,
@@ -69,7 +69,7 @@ const products = [
     name: 'Baseball Gloves',
     image: '/images/gloves.jpg',
     description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
+      'Contour fit System provides customizable finger adjustments',
     brand: 'Amazon',
     category: 'Electronics',
     price: 29.99,
@@ -82,7 +82,7 @@ const products = [
     name: 'Hockey Stick',
     image: '/images/hockeyy.jpg',
     description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
+      'The even balanced weight distribution provides a great feel for stickhandling, passing, and shooting.',
     brand: 'Amazon',
     category: 'Electronics',
     price: 29.99,
@@ -95,7 +95,7 @@ const products = [
     name: 'Vollyball',
     image: '/images/vollyball.jpg',
     description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
+      '18-panel, machine-sewn construction for optimal shape retention',
     brand: 'Amazon',
     category: 'Electronics',
     price: 29.99,
@@ -105,10 +105,10 @@ const products = [
   },
   {
     _id: '9',
-    name: 'Table Tennis',
+    name: 'Table Tennis - Paddle & ball set',
     image: '/images/table_tennis.jpg',
     description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
+      ' The handles come in a flared design (narrower at top and wider at bottom) which not only offers superior grip on the blade but also offers enough flexibility. ',
     brand: 'Amazon',
     category: 'Electronics',
     price: 29.99,
@@ -121,7 +121,7 @@ const products = [
     name: 'Vollyball Net',
     image: '/images/net.jpg',
     description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
+      'The volleyball net is made with high tenacity resistant nylon for superior shape retention and durability. A 0.11-inch thickness plastic coated steel wire runs through the upper border of the volleyball net for more stability. The high-quality construction ensures that the products will last years to use.',
     brand: 'Amazon',
     category: 'Electronics',
     price: 29.99,
