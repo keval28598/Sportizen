@@ -6,7 +6,7 @@ const products = [
     description:
       'High-quality PVC leather cover and cork filling, providing certain softness and comfortable touch feeling. The safety baseballs have a soft, cushioned construction which can reduce impact produced during ball catching.',
     brand: 'Apple',
-    category: 'Electronics',
+    category: 'Sports',
     price: 89.99,
     countInStock: 10,
     rating: 4.5,
@@ -19,7 +19,7 @@ const products = [
     description:
       'Perfectly balanced with high performance this is the perfect bat for the player who likes to play big entertaining shots',
     brand: 'Apple',
-    category: 'Electronics',
+    category: 'Sports',
     price: 599.99,
     countInStock: 7,
     rating: 4.0,
@@ -32,7 +32,7 @@ const products = [
     description:
       'The deep-pebble surface material and pro style raised laces ensure extra traction which makes the footballs easy to throw and catch',
     brand: 'Cannon',
-    category: 'Electronics',
+    category: 'Sports',
     price: 929.99,
     countInStock: 5,
     rating: 3,
@@ -45,7 +45,7 @@ const products = [
     description:
       'Shock-absorbing high-density foam padding; fully attached thumb for better injury protection',
     brand: 'Sony',
-    category: 'Electronics',
+    category: 'Sports',
     price: 399.99,
     countInStock: 11,
     rating: 5,
@@ -58,7 +58,7 @@ const products = [
     description:
       'To protect the players heads, the helmet has an EVA impact foam interior, a strong and durable ABS shell and an elastic nylon chin strap.',
     brand: 'Logitech',
-    category: 'Electronics',
+    category: 'Sports',
     price: 49.99,
     countInStock: 7,
     rating: 5,
@@ -71,7 +71,7 @@ const products = [
     description:
       'Contour fit System provides customizable finger adjustments',
     brand: 'Amazon',
-    category: 'Electronics',
+    category: 'Sports',
     price: 29.99,
     countInStock: 0,
     rating: 3.5,
@@ -84,7 +84,7 @@ const products = [
     description:
       'The even balanced weight distribution provides a great feel for stickhandling, passing, and shooting.',
     brand: 'Amazon',
-    category: 'Electronics',
+    category: 'Sports',
     price: 29.99,
     countInStock: 0,
     rating: 3.5,
@@ -97,7 +97,7 @@ const products = [
     description:
       '18-panel, machine-sewn construction for optimal shape retention',
     brand: 'Amazon',
-    category: 'Electronics',
+    category: 'Sports',
     price: 29.99,
     countInStock: 0,
     rating: 3.5,
@@ -110,7 +110,7 @@ const products = [
     description:
       ' The handles come in a flared design (narrower at top and wider at bottom) which not only offers superior grip on the blade but also offers enough flexibility. ',
     brand: 'Amazon',
-    category: 'Electronics',
+    category: 'Sports',
     price: 29.99,
     countInStock: 0,
     rating: 3.5,
@@ -123,7 +123,7 @@ const products = [
     description:
       'The volleyball net is made with high tenacity resistant nylon for superior shape retention and durability. A 0.11-inch thickness plastic coated steel wire runs through the upper border of the volleyball net for more stability. The high-quality construction ensures that the products will last years to use.',
     brand: 'Amazon',
-    category: 'Electronics',
+    category: 'Sports',
     price: 29.99,
     countInStock: 0,
     rating: 3.5,
