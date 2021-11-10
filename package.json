@@ -12,7 +12,6 @@
     "content-type": "^1.0.4",
     "cookie": "^0.4.0",
     "cookie-signature": "^1.0.6",
-    "cors": "^2.8.5",
     "debug": "^2.6.9",
     "depd": "^1.1.2",
     "destroy": "^1.0.4",
@@ -58,8 +57,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
-    "server": "nodemon backend/server",
-    "client": "npm start --prefix frontend"
+    "server":"nodemon backend/server",
+    "client":"npm start --prefix frontend"
   },
   "repository": {
     "type": "git",
