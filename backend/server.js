@@ -3,6 +3,10 @@ const products = require('./data/products');
 
 const app = express();
 
+var cors = require('cors')
+
+app.use(cors({ origin: '* '}));
+
 app.get('/',(req,res) => {
     res.send('Api is running')
 } )
