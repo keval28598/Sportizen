@@ -1,6 +1,6 @@
 const products = [
     {
-      _id: '1',
+      
       name: 'Baseball Ball',
       image: '/images/baseball.jpg',
       description:
@@ -13,7 +13,7 @@ const products = [
       numReviews: 12,
     },
     {
-      _id: '2',
+     
       name: 'Cricket Bat',
       image: '/images/bat.jpg',
       description:
@@ -26,7 +26,7 @@ const products = [
       numReviews: 8,
     },
     {
-      _id: '3',
+      
       name: 'Football',
       image: '/images/footballs.jpg',
       description:
@@ -39,7 +39,7 @@ const products = [
       numReviews: 12,
     },
     {
-      _id: '4',
+      
       name: 'Boxing Gloves',
       image: '/images/glove.jpg',
       description:
@@ -52,7 +52,7 @@ const products = [
       numReviews: 12,
     },
     {
-      _id: '5',
+     
       name: 'Baseball Helmet',
       image: '/images/helmet.jpg',
       description:
@@ -65,7 +65,7 @@ const products = [
       numReviews: 10,
     },
     {
-      _id: '6',
+      
       name: 'Baseball Gloves',
       image: '/images/gloves.jpg',
       description:
@@ -78,7 +78,7 @@ const products = [
       numReviews: 12,
     },
     {
-      _id: '7',
+      
       name: 'Hockey Stick',
       image: '/images/hockeyy.jpg',
       description:
@@ -91,7 +91,7 @@ const products = [
       numReviews: 12,
     },
     {
-      _id: '8',
+      
       name: 'Vollyball',
       image: '/images/vollyball.jpg',
       description:
@@ -104,7 +104,7 @@ const products = [
       numReviews: 12,
     },
     {
-      _id: '9',
+      
       name: 'Table Tennis - Paddle & ball set',
       image: '/images/table_tennis.jpg',
       description:
@@ -117,7 +117,7 @@ const products = [
       numReviews: 12,
     },
     {
-      _id: '10',
+      
       name: 'Vollyball Net',
       image: '/images/net.jpg',
       description:
