@@ -21,7 +21,7 @@ export const productListReducer = (state = {products: [] }, action) =>{
     }
 }
 
-export const productDeatilsReducer = (
+export const productDetailsReducer = (
     state = {products: { reviews: []} }, 
     action
     ) =>{
@@ -33,7 +33,7 @@ export const productDeatilsReducer = (
         case PRODUCT_DETAILS_FAIL:
             return { loading: false, error: action.payload}
         default:
-            return state
+            return { loading: true }
 
     }
 }

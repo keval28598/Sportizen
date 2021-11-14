@@ -3,12 +3,12 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import {
      productListReducer, 
-     productDeatilsReducer, 
+     productDetailsReducer, 
     } from './reducers/productReducers'
 
 const reducer = combineReducers({
     productList: productListReducer,
-    productDeatils: productDeatilsReducer,
+    productDetails: productDetailsReducer,
 })
 
 const initialState = {}
