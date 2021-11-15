@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { Link, useParams, browserHistory } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
@@ -7,7 +7,9 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listProductDetails } from '../actions/productActions'
 
-const ProductScreen = ({history, match}) => {
+const ProductScreen = () => {
+
+  const navigate = useNavigate();
   const { id } = useParams();
   const [qty,setQty]= useState(0)
   const dispatch = useDispatch()
@@ -20,7 +22,7 @@ const ProductScreen = ({history, match}) => {
   }, [dispatch, id]);
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`)
+    navigate(`/cart/${id}?qty=${qty}`)
 }
 
   return (
