@@ -11,8 +11,8 @@ const Header = () => {
     <Navbar.Brand href='/' >Sportizen</Navbar.Brand>
     
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ml-auto">
+    <Navbar.Collapse id="basic-navbar-nav"  style={{ justifyContent: 'flex-end'}}>
+      <Nav className="mr-0">
         <Nav.Link href="/cart"><i className="fas fa-shopping-cart"></i>Cart</Nav.Link>
         <Nav.Link href="/login"><i className="fas fa-user"></i>Sign In</Nav.Link>
        
