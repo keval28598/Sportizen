@@ -9,7 +9,6 @@ import { listProducts } from '../actions/productActions'
 
 const HomeScreen = () => {
     //const [products, setProducts] = useState([])
-
     const dispatch = useDispatch()
 
     const productList = useSelector(state => state.productList)
