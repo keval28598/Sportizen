@@ -4,7 +4,7 @@ import { Link,useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import FormConatiner from '../components/FormConatiner'
+import FormConatiner from '../components/FormContainer'
 import { login } from '../actions/userActions'
 import { useNavigate } from 'react-router-dom'
 

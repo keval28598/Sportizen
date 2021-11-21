@@ -21,7 +21,7 @@ const App = () => {
       <Router>
       <Routes>
       <Route path='/login' element={<LoginScreen/>} />
-      <Route path='/register' component={<RegisterScreen/>} />
+      <Route path='/register' element={<RegisterScreen/>} />
       <Route path='/product/:id' element={<ProductScreen/>} />
       <Route path='/cart/:id' element={<CartScreen/>} />
       <Route path='/' element={<HomeScreen/>} exact />
