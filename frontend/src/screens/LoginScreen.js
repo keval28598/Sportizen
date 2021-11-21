@@ -1,11 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import { Form,Button, Row, Col } from 'react-bootstrap'
-import { Link,useParams, useLocation } from 'react-router-dom'
+import { Link,useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormConatiner from '../components/FormConatiner'
 import { login } from '../actions/userActions'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const LoginScreen = ({history}) => {
@@ -13,17 +15,17 @@ const LoginScreen = ({history}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const location = useLocation();
-
+    const navigate = useNavigate();
     const dispatch = useDispatch()
     const userLogin= useSelector(state =>state.userLogin)
-    const {loading,error, userInfo} = userLogin
+    const {loading, error, userInfo} = userLogin
     
 
     const redirect = location.search ? location.search.split('=')[1] : '/'
 
     useEffect(()=> {
         if (userInfo){
-            history.push(redirect)
+            navigate(redirect)
         }
     }, [history, userInfo, redirect])
     const submitHandler = (e) => {
@@ -60,7 +62,7 @@ const LoginScreen = ({history}) => {
             <Row className = 'py-3'>
                 <Col className='m-1'>
                     New Customer? {' '}
-                    <Link to = { redirect ? '/register?redirect=${redirect}' : '/register'}>
+                    <Link to = { redirect ? `/register?redirect=${redirect}` : '/register'}>
                     Register
                     </Link>
                 </Col>
