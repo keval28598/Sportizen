@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, {useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
+import { createOrder } from '../actions/orderAction'
+import { useNavigate } from 'react-router-dom'
+
+
 
 const PlaceOrderScreen = () => {
+
   const cart = useSelector((state) => state.cart)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   //   Calculate prices
   const addDecimals = (num) => {
@@ -16,19 +24,48 @@ const PlaceOrderScreen = () => {
   cart.itemsPrice = addDecimals(
     cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   )
+
+
   cart.shippingPrice = addDecimals(cart.itemsPrice > 100 ? 0 : 100)
   cart.taxPrice = addDecimals(Number((0.15 * cart.itemsPrice).toFixed(2)))
+
   cart.totalPrice = (
     Number(cart.itemsPrice) +
     Number(cart.shippingPrice) +
     Number(cart.taxPrice)
   ).toFixed(2)
+  const orderCreate = useSelector((state) => state.orderCreate)
+  const { order, success, error } = orderCreate
+
+  useEffect(() => {
+
+    if (success) {
+      navigate(`/order/${order._id}`)
+    }
+    // eslint-disable-next-line
+  }, [history, success])
+
+  const placeOrderHandler = () => {
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      })
+    )
 
   const placeOrderHandler = () => {
     console.log('order')
   }
 
-  return (
+
+}
+
+return (
     <>
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
@@ -114,6 +151,9 @@ const PlaceOrderScreen = () => {
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
+                {error && <Message variant='danger'>{error}</Message>}
+              </ListGroup.Item>
+              <ListGroup.Item>
                 <Button
                   type='button'
                   className='btn-block'
@@ -128,7 +168,6 @@ const PlaceOrderScreen = () => {
         </Col>
       </Row>
     </>
-  )
-}
+  )}
 
 export default PlaceOrderScreen
