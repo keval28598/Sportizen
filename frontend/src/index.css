@@ -33,4 +33,20 @@ h2 {
 .rating span{
   margin: 0.1rem;
 }
+header{
+ background-color: #3459e6;
+ color: white ;
+}
+.navbar-light .navbar-brand{
+  color: white;
+}
+.navbar-light .navbar-brand:hover{
+  color: white;
+}
+.navbar-light .navbar-nav .nav-link{
+  color: white;
+}
 
+.navbar-light .navbar-nav .nav-link:hover{
+  color: white;
+}

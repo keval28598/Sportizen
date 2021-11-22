@@ -14,8 +14,8 @@ const Header = () => {
   }
     return (
         <header>
-<Navbar bg="light" variend="light" expand="lg" collapseOnSelect>
-  <Container>
+<Navbar bg="" variend="light" expand="lg" collapseOnSelect >
+  <Container >
     
     <Navbar.Brand href='/' >Sportizen</Navbar.Brand>
     
