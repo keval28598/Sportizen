@@ -35,29 +35,27 @@ const OrderScreen = ({}) => {
 
   useEffect(() => {
     const addPayPalScript = async () => {
-      const {data: clientId} = await axios.get(
-        "http://localhost:5000/api/config/paypal"
-      );
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
-      script.async = true;
+      const { data: clientId } = await axios.get('http://localhost:5000/api/config/paypal')
+      const script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
+      script.async = true
       script.onload = () => {
-        setSdkReady(true);
-      };
-      document.body.appendChild(script);
-    };
-
-    if (!order || order._id !== id || successPay) {
-      dispatch(getOrderDetails(id));
+        setSdkReady(true)
+      }
+      document.body.appendChild(script)
+    }
+    if (!order || successPay) {
+      dispatch({ type: ORDER_PAY_RESET })
+      dispatch(getOrderDetails(id))
     } else if (!order.isPaid) {
       if (!window.paypal) {
-        addPayPalScript();
+        addPayPalScript()
       } else {
-        setSdkReady(true);
+        setSdkReady(true)
       }
     }
-  }, [dispatch, id, successPay, order]);
+  }, [dispatch, id, successPay, order])
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult);

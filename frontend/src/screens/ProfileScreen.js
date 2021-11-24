@@ -146,13 +146,18 @@ const ProfileScreen = ({}) => {
                     )}
                   </td>
                   <td>
-                    <ListGroup>
+                    <Link to={`http://localhost:5000/orders/${order._id}`}>
+                    <Button className="btn-sm" variant="light">
+                          Details
+                        </Button>
+                    </Link>
+                    {/* <ListGroup>
                       <ListGroup.Item>
                         <Button className="btn-sm" variant="light">
                           Details
                         </Button>
                       </ListGroup.Item>
-                    </ListGroup>
+                    </ListGroup> */}
                   </td>
                 </tr>
               ))}

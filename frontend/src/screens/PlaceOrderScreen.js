@@ -42,7 +42,7 @@ const PlaceOrderScreen = () => {
       navigate(`/order/${order._id}`)
     }
     // eslint-disable-next-line
-  }, [history, success])
+  }, [success])
 
   const placeOrderHandler = () => {
     dispatch(
