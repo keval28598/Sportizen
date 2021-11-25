@@ -29,7 +29,7 @@ const UserListScreen = () => {
     } else {
       navigate('/login')
     }
-  }, [dispatch,successDelete])
+  }, [dispatch,successDelete,userInfo])
 
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure')) {
@@ -71,7 +71,7 @@ const UserListScreen = () => {
                   )}
                 </td>
                 <td>
-                  <Link to={`http://localhost:5000/user/${user._id}/edit`}>
+                  <Link to={`/admin/user/${user._id}/edit`}>
                     <Button variant='light' className='btn-sm'>
                       <i className='fas fa-edit'></i>
                     </Button>
