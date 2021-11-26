@@ -6,10 +6,14 @@ import {Row, Col, ListGroup, Image, Card} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import {getOrderDetails, payOrder} from "../actions/orderAction";
-import {ORDER_PAY_RESET} from "../constants/orderConstants";
+import {getOrderDetails, payOrder, deliverOrder} from "../actions/orderAction";
+import {
+  ORDER_PAY_RESET,
+  ORDER_DELIVER_RESET,
+} from "../constants/orderConstants";
+import Button from "@restart/ui/esm/Button";
 
-const OrderScreen = ({}) => {
+const OrderScreen = ({history}) => {
   const {id} = useParams();
 
   const [sdkReady, setSdkReady] = useState(false);
@@ -21,6 +25,12 @@ const OrderScreen = ({}) => {
 
   const orderPay = useSelector((state) => state.orderPay);
   const {loading: loadingPay, success: successPay} = orderPay;
+
+  const orderDeliver = useSelector((state) => state.orderDeliver);
+  const {loading: loadingDeliver, success: successDeliver} = orderDeliver;
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const {userInfo} = userLogin;
 
   if (!loading) {
     //   Calculate prices
@@ -34,32 +44,43 @@ const OrderScreen = ({}) => {
   }
 
   useEffect(() => {
-    const addPayPalScript = async () => {
-      const { data: clientId } = await axios.get('http://localhost:5000/api/config/paypal')
-      const script = document.createElement('script')
-      script.type = 'text/javascript'
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`
-      script.async = true
-      script.onload = () => {
-        setSdkReady(true)
-      }
-      document.body.appendChild(script)
+    if (!userInfo) {
+      history.push("/login");
     }
-    if (!order || successPay) {
-      dispatch({ type: ORDER_PAY_RESET })
-      dispatch(getOrderDetails(id))
+
+    const addPayPalScript = async () => {
+      const {data: clientId} = await axios.get(
+        "http://localhost:5000/api/config/paypal"
+      );
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}`;
+      script.async = true;
+      script.onload = () => {
+        setSdkReady(true);
+      };
+      document.body.appendChild(script);
+    };
+    if (!order || successPay || successDeliver) {
+      dispatch({type: ORDER_PAY_RESET});
+      dispatch({type: ORDER_DELIVER_RESET});
+      dispatch(getOrderDetails(id));
     } else if (!order.isPaid) {
       if (!window.paypal) {
-        addPayPalScript()
+        addPayPalScript();
       } else {
-        setSdkReady(true)
+        setSdkReady(true);
       }
     }
-  }, [dispatch, id, successPay, order])
+  }, [dispatch, id, successPay, successDeliver, order]);
 
   const successPaymentHandler = (paymentResult) => {
     console.log(paymentResult);
     dispatch(payOrder(id, paymentResult));
+  };
+
+  const deliverHandler = () => {
+    dispatch(deliverOrder(order));
   };
 
   return loading ? (
@@ -185,6 +206,22 @@ const OrderScreen = ({}) => {
                   )}
                 </ListGroup.Item>
               )}
+
+              {loadingDeliver && <Loader />}
+              {userInfo &&
+                userInfo.isAdmin &&
+                order.isPaid &&
+                !order.isDelivered && (
+                  <ListGroup.Item>
+                    <Button
+                      type="button"
+                      className="btn btn-block"
+                      onClick={deliverHandler}
+                    >
+                      Mark Ad delivered
+                    </Button>
+                  </ListGroup.Item>
+                )}
             </ListGroup>
           </Card>
         </Col>
