@@ -8,6 +8,7 @@ import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { listProductDetails, updateProduct } from '../actions/productActions'
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
+import { connect } from 'mongoose'
 
 const ProductEditScreen = ({ history }) => {
   const { id } = useParams();
@@ -64,9 +65,9 @@ const ProductEditScreen = ({ history }) => {
         },
       }
 
-      const { data } = await axios.post('/api/upload', formData, config)
-
-      setImage(data)
+      const { data } = await axios.post('http://localhost:5000/api/upload', formData, config)
+      console.log(data);
+      setImage(data.split('\\').join('/'))
       setUploading(false)
     } catch (error) {
       console.error(error)
@@ -102,7 +103,7 @@ const ProductEditScreen = ({ history }) => {
           <Loader />
         ) : error ? (
           <Message variant='danger'>{error}</Message>
-        ) : (
+         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId='name'>
               <Form.Label>Name</Form.Label>
@@ -113,31 +114,36 @@ const ProductEditScreen = ({ history }) => {
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId='price'>
+             <Form.Group controlId='price'>
               <Form.Label>Price</Form.Label>
               <Form.Control
                 type='number'
                 placeholder='Enter price'
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-              ></Form.Control>
+              ></Form.Control> 
             </Form.Group>
-            <Form.Group controlId='image'>
+             <Form.Group controlId='image'>
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type='text'
                 placeholder='Enter image url'
                 value={image}
-                onChange={(e) => setImage(e.target.value)}
+                onChange={(e) => {
+                  console.log(e)
+                  return setImage(e.target.value)
+                }}
               ></Form.Control>
-              <Form.File
-                id='image-file'
-                label='Choose File'
-                custom
-                onChange={uploadFileHandler}
-              ></Form.File>
+              
+              <Form.Group
+               
+              
+                
+              >
+                <Form.Control type="file" onChange={uploadFileHandler}   label='Choose File'  id='image-file'/>
+              </Form.Group>
               {uploading && <Loader />}
-            </Form.Group>
+            </Form.Group>  
 
             <Form.Group controlId='brand'>
               <Form.Label>Brand</Form.Label>

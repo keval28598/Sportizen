@@ -25,11 +25,15 @@ app.use(express.json());
 
 import cors from "cors";
 
-app.use(cors({origin: "* "}));
+app.use(cors({origin: "*"}));
 
 app.get("/", (req, res) => {
   res.send("Api is running");
 });
+
+const __dirname = path.resolve()
+app.use(express.static(path.join(__dirname, 'backend', 'public')))
+app.use('/backend', express.static(path.join(__dirname, 'backend')))
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
@@ -39,9 +43,6 @@ app.use("/api/upload", uploadRoutes);
 app.get("/api/config/paypal", (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 );
-
-const __dirname = path.resolve()
-app.use('/uploads', express.static(path.join(__dirname,'/uploads')))
 
 app.use(notFound);
 app.use(errorHandler);
