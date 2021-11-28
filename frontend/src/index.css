@@ -76,6 +76,9 @@ header {
   margin: 0 auto;
 }
 .slide{
-  background-color:#DDDFE3;
+  background-color:#EEEEEE;
+  color: black;
+}
+.carousel-caption h2{
   color: black;
 }
