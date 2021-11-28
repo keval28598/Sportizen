@@ -75,3 +75,7 @@ header {
 .carousel a {
   margin: 0 auto;
 }
+.slide{
+  background-color:#DDDFE3;
+  color: black;
+}

@@ -8,7 +8,7 @@ import {
   productCreateReducer,
   productUpdateReducer,
   productReviewCreateReducer,
-  productTopRatedReducer,roductTopRatedReducer,
+  productTopRatedReducer,
 } from "./reducers/productReducers";
 import {cartReducer} from "./reducers/cartReducers";
 import {

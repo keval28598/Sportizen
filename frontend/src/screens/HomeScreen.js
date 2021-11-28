@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import helmet from 'react-helmet'
 import { useDispatch, useSelector } from 'react-redux'
 import {Row,Col} from 'react-bootstrap';
 import Product from '../components/Product';
@@ -11,6 +12,7 @@ import { listProducts } from '../actions/productActions'
 //import axios from 'axios';
 
 const HomeScreen = () => {
+    const { keyword } = useParams();
     //const [products, setProducts] = useState([])
     const dispatch = useDispatch()
 
@@ -23,6 +25,7 @@ const HomeScreen = () => {
 
     return (
         <>
+       {!keyword && <ProductCarousel />}
         <h1>Product Lineup</h1>
         {loading ? 
         ( <Loader/> )
