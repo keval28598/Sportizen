@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom'
-import helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { useDispatch, useSelector } from 'react-redux'
 import {Row,Col} from 'react-bootstrap';
 import Product from '../components/Product';
@@ -25,6 +25,7 @@ const HomeScreen = () => {
 
     return (
         <>
+        <Meta />
        {!keyword && <ProductCarousel />}
         <h1>Product Lineup</h1>
         {loading ? 
