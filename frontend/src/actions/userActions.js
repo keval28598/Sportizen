@@ -27,6 +27,7 @@ import {
 } from "../constants/userConstants";
 
 import {ORDER_LIST_MY_RESET} from "../constants/orderConstants";
+import process from '../config';
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -41,7 +42,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const {data} = await axios.post(
-      `http://localhost:5000/api/users/login`,
+      `${process.env.API_URL}/api/users/login`,
       {email, password},
       config
     );
@@ -83,7 +84,7 @@ export const register = (name, email, password) => async (dispatch) => {
     };
 
     const {data} = await axios.post(
-      `http://localhost:5000/api/users`,
+      `${process.env.API_URL}/api/users`,
       {name, email, password},
       config
     );
@@ -128,7 +129,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     };
 
     const {data} = await axios.get(
-      `http://localhost:5000/api/users/${id}`,
+      `${process.env.API_URL}/api/users/${id}`,
       config
     );
 
@@ -165,7 +166,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     };
 
     const {data} = await axios.put(
-      `http://localhost:5000/api/users/profile`,
+      `${process.env.API_URL}/api/users/profile`,
       user,
       config
     );
@@ -201,7 +202,7 @@ export const listUsers = () => async (dispatch, getState) => {
       },
     };
 
-    const {data} = await axios.get(`http://localhost:5000/api/users`, config);
+    const {data} = await axios.get(`${process.env.API_URL}/api/users`, config);
 
     dispatch({
       type: USER_LIST_SUCCESS,
@@ -234,7 +235,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.delete(`http://localhost:5000/api/users/${id}`, config)
+    const { data } = await axios.delete(`${process.env.API_URL}/api/users/${id}`, config)
 
     dispatch({ type: USER_DELETE_SUCCESS })
   } catch (error) {
@@ -265,7 +266,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(`http://localhost:5000/api/users/${user._id}`, user, config)
+    const { data } = await axios.put(`${process.env.API_URL}/api/users/${user._id}`, user, config)
 
     dispatch({ type: USER_UPDATE_SUCCESS })
 

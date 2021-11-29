@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import {listProducts, deleteProduct, createProduct} from "../actions/productActions";
+import process from '../config';
 import {PRODUCT_CREATE_REQUEST, PRODUCT_CREATE_RESET} from '../constants/productConstants';
 
 const ProductListScreen = ({history, match}) => {
@@ -38,7 +39,7 @@ const ProductListScreen = ({history, match}) => {
       navigate("/login");
     } 
     if (successCreate){
-      navigate(`admin/product/${createdProduct._id}/edit`)
+      navigate(`/admin/product/${createdProduct._id}/edit`)
     }
     else{
       dispatch(listProducts())

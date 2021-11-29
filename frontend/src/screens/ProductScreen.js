@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Meta from '../components/Meta'
+import process from '../config';
 
 import {
   listProductDetails,
@@ -72,7 +73,7 @@ const ProductScreen = ({ history, match }) => {
         <Meta title={product.name} />
           <Row>
             <Col md={6}>
-              <Image src={`http://localhost:5000${product.image}`} alt={product.name} fluid />
+              <Image src={`${process.env.API_URL}${product.image}`} alt={product.name} fluid />
             </Col>
             <Col md={3}>
               <ListGroup variant='flush'>

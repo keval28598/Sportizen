@@ -12,6 +12,7 @@ import {
   ORDER_DELIVER_RESET,
 } from "../constants/orderConstants";
 import Button from "@restart/ui/esm/Button";
+import process from '../config';
 
 const OrderScreen = ({history}) => {
   const {id} = useParams();
@@ -32,6 +33,7 @@ const OrderScreen = ({history}) => {
   const userLogin = useSelector((state) => state.userLogin);
   const {userInfo} = userLogin;
 
+
   if (!loading) {
     //   Calculate prices
     const addDecimals = (num) => {
@@ -50,7 +52,7 @@ const OrderScreen = ({history}) => {
 
     const addPayPalScript = async () => {
       const {data: clientId} = await axios.get(
-        "http://localhost:5000/api/config/paypal"
+        `${process.env.API_URL}/api/config/paypal`
       );
       const script = document.createElement("script");
       script.type = "text/javascript";

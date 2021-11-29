@@ -19,6 +19,7 @@ import {
   ORDER_DELIVER_SUCCESS,
   ORDER_DELIVER_FAIL,
 } from "../constants/orderConstants";
+import process from '../config';
 
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
@@ -37,7 +38,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
     };
 
     const {data} = await axios.post(
-      `http://localhost:5000/api/orders`,
+      `${process.env.API_URL}/api/orders`,
       order,
       config
     );
@@ -74,7 +75,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
     };
 
     const {data} = await axios.get(
-      `http://localhost:5000/api/orders/${id}`,
+      `${process.env.API_URL}/api/orders/${id}`,
       config
     );
 
@@ -112,7 +113,7 @@ export const payOrder =
       };
 
       const {data} = await axios.put(
-        `http://localhost:5000/api/orders/${orderId}/pay`,
+        `${process.env.API_URL}/api/orders/${orderId}/pay`,
         paymentResult,
         config
       );
@@ -149,7 +150,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
     };
 
     const {data} = await axios.get(
-      `http://localhost:5000/api/orders/myorders`,
+      `${process.env.API_URL}/api/orders/myorders`,
       config
     );
 
@@ -184,8 +185,8 @@ export const listOrders = () => async (dispatch, getState) => {
       },
     };
 
-    const {data} = await axios.get(`http://localhost:5000/api/orders`, config);
-
+    const {data} = await axios.get(`${process.env.API_URL}/api/orders`, config);
+    console.log(data);
     dispatch({
       type: ORDER_LIST_SUCCESS,
       payload: data,
@@ -218,7 +219,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
     };
 
     const {data} = await axios.put(
-      `http://localhost:5000/api/orders/${order._id}/deliver`,
+      `${process.env.API_URL}/api/orders/${order._id}/deliver`,
       {},
       config
     );

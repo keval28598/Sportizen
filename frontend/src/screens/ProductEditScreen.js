@@ -8,7 +8,7 @@ import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { listProductDetails, updateProduct } from '../actions/productActions'
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
-import { connect } from 'mongoose'
+import process from '../config';
 
 const ProductEditScreen = ({ history }) => {
   const { id } = useParams();
@@ -65,7 +65,7 @@ const ProductEditScreen = ({ history }) => {
         },
       }
 
-      const { data } = await axios.post('http://localhost:5000/api/upload', formData, config)
+      const { data } = await axios.post(`${process.env.API_URL}/api/upload`, formData, config)
       console.log(data);
       setImage(data.split('\\').join('/'))
       setUploading(false)

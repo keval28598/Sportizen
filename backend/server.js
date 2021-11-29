@@ -27,13 +27,14 @@ import cors from "cors";
 
 app.use(cors({origin: "*"}));
 
-app.get("/", (req, res) => {
-  res.send("Api is running");
-});
-
 const __dirname = path.resolve()
-app.use(express.static(path.join(__dirname, 'backend', 'public')))
-app.use('/backend', express.static(path.join(__dirname, 'backend')))
+
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'build')))
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve('build/index.html'));
+})
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);

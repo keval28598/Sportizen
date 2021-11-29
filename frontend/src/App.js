@@ -22,10 +22,11 @@ import OrderListScreen from "./screens/OrderListScreen";
 const App = () => {
   return (
     <>
-      <Header />
-      <main className="py-3">
-        <Container>
           <Router>
+          <Header />
+          <main className="py-3">
+          <Container>       
+
             <Routes>
               <Route path="/login" element={<LoginScreen />} />
               <Route path="/order/:id" element={<OrderScreen />} />
@@ -45,13 +46,16 @@ const App = () => {
               />
               <Route path="/product/:id" element={<ProductScreen />} />
               <Route path="/cart/:id" element={<CartScreen />} />
+              <Route path="/cart" element={<CartScreen />} />
               <Route path="/admin/userlist" element={<UserListScreen />} />
               <Route path="/admin/orderlist" element={<OrderListScreen />} />
               <Route path="/" element={<HomeScreen />} exact />
             </Routes>
+            </Container>
+            </main>
           </Router>
-        </Container>
-      </main>
+
+
       <Footer />
     </>
   );

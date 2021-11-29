@@ -1,13 +1,16 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 // import {LinkContainer} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import {Navbar, Nav, Container, NavDropdown} from "react-bootstrap";
 import {logout} from "../actions/userActions";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.userLogin);
+  const navigate = useNavigate()
+;  const userLogin = useSelector((state) => state.userLogin);
   const {userInfo} = userLogin;
+
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -24,12 +27,12 @@ const Header = () => {
             style={{justifyContent: "flex-end"}}
           >
             <Nav className="mr-0">
-              <Nav.Link href="/cart">
+              <Nav.Link onClick={() => { navigate('/cart') }}>
                 <i className="fas fa-shopping-cart"></i>Cart
               </Nav.Link>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
-                  <Nav.Link href="/profile">
+                  <Nav.Link onClick={() => {navigate('/profile')}}>
                     <i className="fas fa-user"></i>Profile
                   </Nav.Link>
                   <NavDropdown.Item onClick={logoutHandler}>
@@ -37,18 +40,18 @@ const Header = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
-                <Nav.Link href="/login">
+                <Nav.Link onClick={() => { navigate("/login") }}>
                   <i className="fas fa-user"></i>Sign In
                 </Nav.Link>
               )}
 
               {userInfo && userInfo.isAdmin && (
                 <NavDropdown title="Admin" id="adminmenu">
-                  <Nav.Link href="/admin/userlist">
+                  <Nav.Link onClick={() => {navigate("/admin/userlist")}}>
                     <i className="fas fa-user"></i>Users
                   </Nav.Link>
-                  <Nav.Link href="/admin/productlist">Products</Nav.Link>
-                  <Nav.Link href="/admin/orderlist">Orders</Nav.Link>
+                  <Nav.Link onClick={ () => { navigate("/admin/productlist") }}>Products</Nav.Link>
+                  <Nav.Link onClick= {() => { navigate("/admin/orderlist") }}>Orders</Nav.Link>
                 </NavDropdown>
               )}
             </Nav>

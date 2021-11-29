@@ -46,7 +46,7 @@ const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
     name: "Sample name",
     price: 0,
-    user: eq.user._id,
+    user: req.user._id,
     image: "/images/sample.jpg",
     brand: "Sample brand",
     category: "Sample category",

@@ -5,9 +5,9 @@ import {Row, Col, ListGroup, Image, Form, Button, Card} from 'react-bootstrap'
 import Message from '../components/Message'
 import { useNavigate } from 'react-router-dom'
 import {addToCart,removeFromCart} from '../actions/cartActions'
+import process from '../config';
 
-
-export const CartScreen = ({ history}) => {
+export const CartScreen = () => {
 
     const { id } = useParams();
     const location = useLocation();
@@ -50,7 +50,7 @@ export const CartScreen = ({ history}) => {
               <ListGroup.Item key={item.product}>
                 <Row>
                   <Col md={2}>
-                    <Image src={`http://localhost:5000${item.image}`} alt={item.name} fluid rounded />
+                    <Image src={`${process.env.API_URL}${item.image}`} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
                     <Link to={`/product/${item.product}`}>{item.name}</Link>

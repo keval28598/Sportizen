@@ -6,6 +6,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import {getUserDetails, updateUserProfile} from "../actions/userActions";
 import {listMyOrders} from "../actions/orderAction";
+import process from '../config';
 
 const ProfileScreen = ({}) => {
   const location = useLocation();
@@ -146,7 +147,7 @@ const ProfileScreen = ({}) => {
                     )}
                   </td>
                   <td>
-                    <Link to={`http://localhost:5000/orders/${order._id}`}>
+                    <Link to={`${process.env.API_URL}/orders/${order._id}`}>
                     <Button className="btn-sm" variant="light">
                           Details
                         </Button>
