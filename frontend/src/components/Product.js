@@ -2,12 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Card } from 'react-bootstrap'
 import Rating from './Rating'
+import process from '../config';
 
 const Product = ({ product }) => {
     return (
         <Card className='my-3 p-3 rounded'>
             <Link to={`/product/${product._id}`}>
-                <Card.Img src={`http://localhost:5000${product.image}`} variant="top" />
+                <Card.Img src={`${process.env.API_URL}${product.image}`} variant="top" />
             </Link>
 
             <Card.Body>
