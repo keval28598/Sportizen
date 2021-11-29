@@ -1,5 +1,5 @@
 export default process = {
     env: {
-        API_URL: ''
+        API_URL: 'http://localhost:5000'
     }
 };
